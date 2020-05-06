@@ -15,7 +15,7 @@ echo "Boot script: ${BOOT_SCRIPT}"
 
 GITHUB_OAUTH_TOKEN=$(gcloud --project moove-platform-staging beta secrets versions access latest --secret=github_oauth_token)
 
-sed -i '.bak' "s/GITHUB_OAUTH_TOKEN/$GITHUB_OAUTH_TOKEN/g" ${BOOT_SCRIPT}
+sed -i "s/GITHUB_OAUTH_TOKEN/$GITHUB_OAUTH_TOKEN/g" ${BOOT_SCRIPT}
 
 OLD_DATAPROC_IMAGE=$(gcloud compute images list --filter "name ~ dataproc-custom-1-4-5-anaconda" --project moove-platform-staging  | tail -n1 | awk '{ print $1 }')
 

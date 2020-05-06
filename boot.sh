@@ -30,7 +30,7 @@ ln -s /opt/conda/anaconda/envs/moove-dataproc/lib/libnetcdf.so.18 /opt/conda/ana
 
 ## Install pip packages
 echo "*************************************  INSTALLS PIP PACKAGES FROM GIT *************************************"
-git clone https://321200a65a09257015ff1dbe07572d9cfca469ce@github.com/moove-ai/moove-data-exploration.git
+git clone https://GITHUB_OAUTH_TOKEN@github.com/moove-ai/moove-data-exploration.git
 cd moove-data-exploration
 pip install -r ./requirements.txt --ignore-installed
 
