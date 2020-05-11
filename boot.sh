@@ -25,7 +25,12 @@ conda install -c conda-forge qgis
 conda install -c conda-forge pandana
 ln -s /opt/conda/anaconda/envs/moove-dataproc/lib/libnetcdf.so.18 /opt/conda/anaconda/envs/moove-dataproc/lib/libnetcdf.so.15
 
-## Install pip packages
+# Install pip packages from datascience repo
+git clone https://GITHUB_OAUTH_TOKEN@github.com/moove-ai/moove-data-exploration.git
+cd moove-data-exploration
+pip install -r ./requirements.txt --ignore-installed
+
+# Install custom moove modules
 git clone https://GITHUB_OAUTH_TOKEN@github.com/moove-ai/moove-modules.git
 cd moove-modules
 mv modules/* /opt/conda/anaconda/envs/moove-dataproc/lib/python3.6/site-packages
