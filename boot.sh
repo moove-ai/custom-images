@@ -33,7 +33,7 @@ pip install -r ./requirements.txt --ignore-installed
 # Install custom moove modules
 git clone https://GITHUB_OAUTH_TOKEN@github.com/moove-ai/moove-modules.git
 cd moove-modules
-mv modules/* /opt/conda/anaconda/envs/moove-dataproc/lib/python3.6/site-packages
+mv moove-modules /opt/conda/anaconda/envs/moove-dataproc/lib/python3.6/site-packages
 pip install -r ./requirements.txt --ignore-installed
 
 # Setup moove-dataproc environment for Jupyter in systemd
