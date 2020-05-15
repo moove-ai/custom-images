@@ -28,10 +28,7 @@ python generate_custom_image.py \
 --disk-size 100  \
 --machine-type n1-standard-8 \
 --project moove-platform-staging \
---extra-sources "{\"/opt/jupyter-custom.sh\": \"jupyter.sh\", \
-    \"/usr/lib/spark/conf/spark.metrics.properties\": \"spark.metrics.properties\", \
-    \"/opt/moove-modules.sh\": \"moove-modules.sh\"\
-    \"/opt/fixJupyter.sh\": \"fixJupyter.sh\"}"
+--extra-sources "{\"/opt/jupyter-custom.sh\": \"jupyter.sh\", \"/usr/lib/spark/conf/spark.metrics.properties\": \"spark.metrics.properties\",\"/opt/moove-modules.sh\": \"moove-modules.sh\", \"/opt/fixJupyter.sh\": \"fixJupyter.sh\"}"
 
 DATAPROC_IMAGE=$(gcloud compute images list --filter "name ~ dataproc-custom-1-4-5-anaconda" --project moove-platform-staging  | tail -n1 | awk '{ print $1 }')
 
