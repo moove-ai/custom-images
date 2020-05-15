@@ -73,6 +73,19 @@ ExecStart=/usr/sbin/node_exporter \$OPTIONS
 WantedBy=multi-user.target
 EOF
 
+cat >> /usr/lib/systemd/system/jupyter-fix.service <<EOF
+[Unit]
+Description=Fixes jupyter notebook service on boot
+After=network.target jupyter.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /opt/fixJupyter.sh
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
 systemctl daemon-reload
 systemctl enable node_exporter.service
-systemctl start node_exporter.service
+systemctl enable jupyter-fix.service
