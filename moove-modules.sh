@@ -2,7 +2,7 @@
 
 conda activate moove-dataproc
 
-GITHUB_OAUTH_TOKEN=$(gcloud --project moove-platform-staging beta secrets versions access latest --secret=github_oauth_token)
+GITHUB_OAUTH_TOKEN=$(gcloud --project moove-platform-staging beta secrets versions access latest --secret github_oauth_token)
 
 git clone https://$GITHUB_OAUTH_TOKEN@github.com/moove-ai/moove-modules.git
 cd moove-modules
