@@ -34,10 +34,4 @@ DATAPROC_IMAGE=$(gcloud compute images list --filter "name ~ dataproc-custom-1-4
 
 gcloud compute images remove-labels ${OLD_DATAPROC_IMAGE} --labels "version"
 
-GIT_HASH=${SHORT_SHA}
-
-if [[ -z ${GIT_HASH} ]]; then
-    GIT_HASH=$(git rev-parse --short HEAD)
-fi
-
-gcloud compute images add-labels ${DATAPROC_IMAGE} --labels=version=latest,git_hash=${GIT_HASH}
+echo "DATAPROC_IMAGE=$DATAPROC_IMAGE" > /vars/build_vars

@@ -3,8 +3,23 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   id: 'build'
   entrypoint: 'bash'
+  volumes:
+    - name: vars
+      path: /vars
   args:
     - '-c'
     - |
       gcloud config set dataproc/region us-central1
       ./createImage.sh boot.sh
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: 'tag'
+  entrypoint: 'bash'
+  volumes:
+    - name: vars
+      path: /vars
+  args:
+    - '-c'
+    - |
+      source /vars/build_vars &&
+      gcloud compute images add-labels ${DATAPROC_IMAGE} --labels=version=latest,git_hash=${SHORT_SHA}
