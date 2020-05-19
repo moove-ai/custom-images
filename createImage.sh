@@ -33,5 +33,4 @@ python generate_custom_image.py \
 DATAPROC_IMAGE=$(gcloud compute images list --filter "name ~ dataproc-custom-1-4-5-anaconda" --project moove-platform-staging  | tail -n1 | awk '{ print $1 }')
 
 gcloud compute images remove-labels ${OLD_DATAPROC_IMAGE} --labels "version"
-
-echo "DATAPROC_IMAGE=$DATAPROC_IMAGE" > /vars/build_vars
+gcloud compute images add-labels ${DATAPROC_IMAGE} --labels "version=latest"
