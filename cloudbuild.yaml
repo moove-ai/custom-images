@@ -22,4 +22,4 @@ steps:
     - '-c'
     - |
       source /vars/build_vars &&
-      gcloud compute images add-labels ${DATAPROC_IMAGE} --labels=version=latest,git_hash=${SHORT_SHA}
+      gcloud compute images add-labels $DATAPROC_IMAGE --labels=version=latest,git_hash=${SHORT_SHA}
