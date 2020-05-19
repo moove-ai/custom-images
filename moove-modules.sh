@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+source /etc/profile.d/conda.sh
 conda activate moove-dataproc
 
 GITHUB_OAUTH_TOKEN=$(gcloud --project moove-platform-staging beta secrets versions access latest --secret github_oauth_token)
